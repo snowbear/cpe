@@ -1,5 +1,6 @@
 import django, logging, logging.config, os, sys
 
+os.environ["DJANGO_SETTINGS_MODULE"] = "django_site.settings"
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir , "../"))
 django.setup()
