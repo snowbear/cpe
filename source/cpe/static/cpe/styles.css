@@ -1,0 +1,27 @@
+.panel {
+	border: 1px solid darkgray;
+	margin-top: 10px;
+}
+
+.panel_body {
+	padding: 5px;
+}
+
+.panel_header {
+	background: lightgray;
+	padding: 5px;
+}
+
+
+
+.array_cell {
+    display: inline-block;
+	border: 1px solid darkgray;
+	padding: 10px 20px;
+	margin: 5px 0px;
+	background: lightgray;
+}
+
+.array_cell_wrong {
+	background: pink;
+}

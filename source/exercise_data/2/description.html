@@ -1,0 +1,9 @@
+Now that you have a function which calculates the size of the "extended" input array let's start initializeing the segment tree . Initialization includes several steps:
+
+<ol>
+<li>Create an array which will hold the data. Please note that this array should be twice as long as the extended array to hold the entire segment tree.</li>
+<li>Set values in the leaves of the segment tree. Leaves occupy the second part of the data array. The data in the leaves is equal to the data in the input array. </li>
+<li>Calculate the data in the inner nodes of the segment tree. Inner node's value equals to the sum of its children's values.</li>
+</ol>
+
+In this task you're provided with the <i>sums</i> vector, it should hold the data of your segment tree after you initialize it.

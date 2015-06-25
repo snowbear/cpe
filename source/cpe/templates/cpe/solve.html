@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'cpe/styles.css' %}" />
+
+	<script type="text/javascript">
+		var attempt_id = {{ attempt_id }};
+	</script>
+	<script src="{% static 'cpe/jquery.1.11.1.min.js' %}"></script>
+	<script src="{% static 'cpe/solve.js' %}"></script>
+	<script src='/static/cpe/exercise_data/exercise_{{exercise.id}}.js'></script>	
+</head>
+<body>
+
+<div class="panel">
+	<div class="panel_header">Task description</div>
+	<div class="panel_body">{{ task_description }}</div>
+</div>
+
+<div class="panel">
+	<div class="panel_header">Source code</div>
+	<div class="panel_body">
+		<form method='POST' action='{% url 'cpe:submit' exercise.id %}'>
+
+		{% csrf_token %}
+
+		<pre><code>{{ template_prefix }} </code></pre>
+		<textarea name='code' cols='80' rows='10' style="margin-left:100px">{{ current_code }}</textarea>	
+		<pre><code>{{ template_suffix }} </code></pre>
+
+		<input type="submit" value="Submit"></input>
+		</form>
+	</div>
+</div>
+
+<div class="panel" id="verdict_panel">
+	<div class="panel_header">Verdict</div>
+	<div class="panel_body" id="verdict_panel_body"></div>
+</div>
+
+<div class="panel" id="input_panel">
+	<div class="panel_header">Input</div>
+	<div class="panel_body" id="input_panel_body"></div>
+</div>
+
+<div class="panel" id="result_panel">
+	<div class="panel_header">Result</div>
+	<div class="panel_body" id="result_panel_body"></div>
+</div>
+
+</body>
+</html>

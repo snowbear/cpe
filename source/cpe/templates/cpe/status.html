@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<head>
+	<script type="text/javascript" src="{% static 'cpe/jquery.1.11.1.min.js' %}" ></script>
+	<script type='text/javascript'>
+
+function check_status() {
+	$.get("{% url 'cpe:update_status' attempt_id %}", function(res) {
+		res = JSON.parse(res);
+		if (res === true) window.history.go(0);
+	});
+}
+	
+$(function () {
+	var is_in_progress = {{ is_in_progress }};
+	if (is_in_progress) window.setInterval(check_status, 5000);
+});
+	
+	</script>
+</head>
+
+<body>
+
+<pre><code>{{ code }}</code></pre>
+
+<div>
+	Status: {{ status_text }}
+</div>
+
+<div>
+	Description: 
+	<pre>{{ status_description }}</pre>
+</div>
+
+</body>

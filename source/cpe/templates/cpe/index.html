@@ -1,0 +1,10 @@
+<ul>
+{% for exercise in exercises %}
+	<li>
+		{% if exercise in solved %}
+		SOLVED
+		{% endif %}
+		<a href='{% url 'cpe:solve' exercise.id %}'> {{ exercise.name }} </a>
+	</li>
+{% endfor %}
+</ul>

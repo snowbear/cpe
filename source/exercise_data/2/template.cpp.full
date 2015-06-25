@@ -1,0 +1,34 @@
+// id = UNIQUE_ID
+#include <cstdio>
+#include <vector>
+
+using namespace std;
+
+struct segment_tree {
+	static int get_segment_tree_size(int input_size) {
+		int x = 1;
+		while (x < input_size) x += x;
+		return x;
+	}
+	
+	vector<int> sums;
+	
+	segment_tree(const vector<int> &input) {
+USER_CODE
+	}
+};
+
+int main() {	
+	int tests; scanf("%d", &tests);
+	
+	while (tests --> 0) {
+		int sz; scanf("%d", &sz);
+		vector<int> input(sz);
+		for (int i = 0 ; i < sz ; i++) scanf("%d", &input[i]);
+		
+		segment_tree tree(input);
+		printf("%d", tree.sums.size());
+		for (auto x : tree.sums) printf(" %d", x);
+		printf("\n");
+	}
+}
