@@ -1,3 +1,5 @@
+from django_site.settings_novcs import *
+
 """
 Django settings for gettingstarted project.
 
@@ -49,11 +51,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'django_site.urls'
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = { }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -80,8 +77,3 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 WSGI_APPLICATION = 'django_site.wsgi.application'
-
-CF_API_KEY = os.environ["CF_API_KEY"]
-CF_API_SECRET = os.environ["CF_API_SECRET"]
-CPE_CF_HANDLE = os.environ["CPE_CF_HANDLE"]
-CPE_CF_PASSWORD = os.environ["CPE_CF_PASSWORD"]
